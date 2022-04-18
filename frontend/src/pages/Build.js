@@ -1,21 +1,38 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RoadTripAPI from "../api/RoadTripsAPI";
+import AddRoadTrip from "../components/AddRoadTrip"
+import RoadTripInfo from "../components/RoadTripInfo";
 
 function Build(props) {
-
+  // states 
+  const [roadTripList, setRoadTripList] = useState([])
 
   // render new trip form 
+  useEffect(() => {
+    loadRoadTrips()
+  }, [])
+
+  const loadRoadTrips = async () => {
+    const data = await RoadTripAPI.getAllRoadTrips()
+    setRoadTripList(data ? data : [])
+  }
 
   // render all trips
-
+  const renderRoadTrips = () => {
+    return roadTripList.map((roadtrip, index) => {
+      return <RoadTripInfo roadtrip={ roadtrip }/>
+    })
+  }
 
   return (
     <div>
       <h2>build</h2>
       <h3>New Trip</h3>
+      <AddRoadTrip />
 
-      <h3>Trips</h3>
-      
+      <h3>Trips:</h3>
+      { renderRoadTrips() }
 
     </div>
   )
