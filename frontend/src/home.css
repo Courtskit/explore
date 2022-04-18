@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  width: 100%;
+  width: 85%;
   font-family: 'Playfair Display', serif;
 }
 
@@ -46,8 +46,10 @@
 
 @media screen and (min-width:1600px) {
 	.row{ font-size:2vw; }
+  .gridContainer{ width: 80%;}
 }
 
 @media screen and (max-width:575px) {
-	.row{ font-size:2.5vw; }
+	.row{ font-size:2.5vw;}
+  .gridContainer{ width: 100%;}
 }
