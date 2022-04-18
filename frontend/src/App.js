@@ -9,24 +9,24 @@ import Build from './pages/Build';
 
 function App() {
   return (
-    <div className="App">
-      <HashRouter>
-      <header>
+    <HashRouter>
+      <div className="App">
+
         <nav className="navContainer">
           <ul className="navbar">
-            <li>Welcome User</li>
+              <li>Welcome User</li>
           </ul>
         </nav>
-      </header>
-        <div className="main"> 
-          <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/build" element={<Build />}/>
-            <Route path="/parks" element={<Parks />}/>
-          </Routes>
-        </div>
-      </HashRouter>
-    </div>
+
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/build" element={<Build />}/>
+          <Route path="/parks" element={<Parks />}/>
+        </Routes>
+
+
+      </div>
+    </HashRouter>
   );
 }
 
