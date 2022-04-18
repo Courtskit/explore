@@ -9,7 +9,7 @@ function Home(props) {
 
       <div className="gridContainer">
         <div className="column">
-          <Link className="row" to="/build"><h1>PLAN</h1></Link>
+          <Link className="row" to="/parks"><h1>MAP</h1></Link>
 
           <Link className="row" to="/parks"><h1>PARKS</h1></Link>
         </div>
@@ -19,7 +19,7 @@ function Home(props) {
         </div>
 
         <div className="column">
-          <Link className="row" to="/parks"><h1>MAP</h1></Link>
+          <Link className="row" to="/build"><h1>PLAN</h1></Link>
 
           <Link className="row" to="/parks"><h1>BLOG</h1></Link>
         </div>
