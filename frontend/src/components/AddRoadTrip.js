@@ -1,7 +1,6 @@
 import RoadTripAPI from "../api/RoadTripsAPI";
 import { useNavigate } from "react-router-dom";
 
-
 function AddRoadTrip(props) {
 
   const navigate = useNavigate();

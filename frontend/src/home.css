@@ -1,55 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Markazi+Text&family=Playfair+Display:wght@600&display=swap');
 
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Playfair Display', serif;
+  width: 100%;
+  min-height: 100vh;
+}
+
 .navContainer{
   display: flex;
-  align-items: center;
   justify-content: right;
   font-family: 'Lato', sans-serif;
   color: #73e5ed;
-  list-style: none;
+  background-color: #334455;
+  width: 100%;
 }
 
 .navbar {
-  padding-right: 20px;
-  list-style: none;
+  padding: 20px;
 }
 
-.main {
+.mainContainer {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.innerContainer {
   display: flex;
   justify-content: center;
-  height: 90vh;
   align-items: center;
   width: 100%;
 }
 
-.gridContainer {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  width: 85%;
-  font-family: 'Playfair Display', serif;
-}
-
-.column {
+.image-column {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  min-width: 40%;
+  height: 100%;
+}
+
+.menu-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25%;
+  align-items: center;
+  height: 100%;
 }
 
 .row {
   text-decoration: none;
   color: #D6CAC7;
-  font-size:3vw;
-}
-
-@media screen and (min-width:1600px) {
-	.row{ font-size:2vw; }
-  .gridContainer{ width: 80%;}
+  font-size: 2.5vmax;
+  width: 100%;
 }
 
 @media screen and (max-width:575px) {
-	.row{ font-size:2.5vw;}
-  .gridContainer{ width: 100%;}
+	.row{ font-size:3.5vw;}
 }

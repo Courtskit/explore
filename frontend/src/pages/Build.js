@@ -5,7 +5,6 @@ import AddRoadTrip from "../components/AddRoadTrip"
 import RoadTripInfo from "../components/RoadTripInfo";
 
 function Build(props) {
-  // states 
   const [roadTripList, setRoadTripList] = useState([])
 
   // render new trip form 
@@ -18,10 +17,17 @@ function Build(props) {
     setRoadTripList(data ? data : [])
   }
 
+  const removeRoadTrip = (deletedRoadTripId) => {
+    const updatedRoadTrips = roadTripList.filter((roadtrip, index) => {
+      return roadtrip.id !== deletedRoadTripId
+    })
+    setRoadTripList(updatedRoadTrips);
+  }
+
   // render all trips
   const renderRoadTrips = () => {
     return roadTripList.map((roadtrip, index) => {
-      return <RoadTripInfo roadtrip={ roadtrip }/>
+      return <RoadTripInfo roadtrip={ roadtrip } removeRoadTrip={ removeRoadTrip }/>
     })
   }
 
