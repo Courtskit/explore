@@ -28,7 +28,7 @@ function Build(props) {
   // render all trips
   const renderRoadTrips = () => {
     return roadTripList.map((roadtrip, index) => {
-      return <RoadTripInfo roadtrip={ roadtrip } removeRoadTrip={ removeRoadTrip }/>
+      return <RoadTripInfo key={ index } roadtrip={ roadtrip } removeRoadTrip={ removeRoadTrip }/>
     })
   }
 

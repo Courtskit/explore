@@ -2,7 +2,6 @@ import { Link } from "react-router-dom"
 import RoadTripAPI from "../api/RoadTripsAPI"
 
 function RoadTripInfo(props) {
-
   const handleDeleteTrip = async () => {
     const data = await RoadTripAPI.deleteRoadTripById(props.roadtrip.id)
     if (data) {
@@ -12,7 +11,6 @@ function RoadTripInfo(props) {
       console.error("ERROR")
     }
   }
-
   return (
     <div>
       <Link key={ props.roadtrip.id } to={`/trip/${props.roadtrip.id}`}>{ props.roadtrip.name }</Link>

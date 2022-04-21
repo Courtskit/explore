@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import RoadTripAPI from "../api/RoadTripsAPI";
 import { useParams, useNavigate } from "react-router-dom";
+import AddDestination from "../components/AddDestination";
+
 
 function Trip(props) {
   const [trip, setTrip] = useState(null);
@@ -13,7 +15,9 @@ function Trip(props) {
   }, [params.id])
 
   const loadRoadTrips = async () => {
-    let data = await RoadTripAPI.getTripDestinationsById(params.id)
+    // console.log(params.id)
+    let data = await RoadTripAPI.getTripById(params.id)
+    // console.log('DATA', data)////
     setTrip(data)
   }
 
@@ -22,20 +26,40 @@ function Trip(props) {
   }, [trip])
 
   const loadRoadTripDestinations = async () => {
-    if (!trip)
-      setTrip([])
-    let newDestinations = []
-    for(const tripId of trip.destinations) {
-      newDestinations.push(await RoadTripAPI.getTripDestinationsById(tripId))
+    if (!trip) {
+      setTrip(null)
+      return 
     }
-    setDestinations(destinations);
+    let newDestinations = []
+    console.log("TRIPPPPPPPP", trip)
+    console.log("TRIPPPPPPPPDESTINATIONS", trip.destinations)
+
+    for(const destinationId of trip.destinations) {
+      console.log('TRIP ID ', destinationId)
+      newDestinations.push(await RoadTripAPI.getTripDestinationsById(destinationId))
+      // console.log("TRIPPPPPPPPDESTINATION ****** JUST ONE", newDestinations)
+    }
+    setDestinations(newDestinations);
+    console.log('newwwwwwwwDestinations', newDestinations)////
   }
 
   const renderDestinations = () => {
+    if (destinations.length == 0 || !destinations) {
+      return 
+    }
     return destinations.map((destination, index) => {
-      console.log('DESTINATIONNNNNN', destination)
-      return <p key={ index }>{ destination.name }</p>
+      return renderDestination(destination, index) 
     })
+  }
+
+  const renderDestination = (destination, index) => {
+    return (
+      <div key={ index }>
+        <h2>{ destination.name }</h2>
+        <h3>{ destination.description }</h3>
+        <p>{ destination.date }</p>
+      </div>
+    )
   }
 
   return (
@@ -43,6 +67,7 @@ function Trip(props) {
       <h3>Trip Details</h3>
       { renderDestinations() }
       <button onClick={() => navigate('/trip')}>Back</button>
+      <AddDestination />
     </div>
   )
 }

@@ -5,8 +5,8 @@ const BASE_URL = "http://localhost:8000/explore/";
 const tryCatchFetch = async (axiosCall) => {
   try {
     const response = await axiosCall();
-    console.log("RESPONSE:", response);
-    console.log("RESPONSE DATA:", response.data);
+    // console.log("RESPONSE:", response);
+    // console.log("RESPONSE DATA:", response.data);
     return response.data ? response.data : {message:"success"};
   }
   catch (e) {
@@ -25,13 +25,21 @@ RoadTripAPI.createRoadTrip = async (roadTripData) => {
   return await tryCatchFetch(() => axios.post(`${BASE_URL}trip/`, roadTripData));
 }
 
+RoadTripAPI.getTripById = async (tripId) => {
+  return await tryCatchFetch(() => axios.get(`${BASE_URL}trip/${tripId}/`)) 
+}
+
 RoadTripAPI.deleteRoadTripById = async (roadTripId) => {
   return await tryCatchFetch(() => axios.delete(`${BASE_URL}trip/${roadTripId}/`));
 }
 
 RoadTripAPI.getTripDestinationsById = async (tripId) => {
-  return await tryCatchFetch(() => axios.get(`${BASE_URL}trip/${tripId}/`))
+  return await tryCatchFetch(() => axios.get(`${BASE_URL}trip-destination/${tripId}/`)) // backend URL 
 }
+
+RoadTripAPI.createRoadTripDestination = async (destinationData) => {
+  return await tryCatchFetch(() => axios.post(`${BASE_URL}trip-destination/`, destinationData));
+} // IN PROGRESS
 
 
 export default RoadTripAPI;
