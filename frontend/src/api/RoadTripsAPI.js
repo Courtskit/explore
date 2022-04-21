@@ -25,10 +25,6 @@ RoadTripAPI.createRoadTrip = async (roadTripData) => {
   return await tryCatchFetch(() => axios.post(`${BASE_URL}trip/`, roadTripData));
 }
 
-// RoadTripAPI.getTripDestinationsById = async (tripId) => {
-//   return await tryCatchFetch(() => axios.get(`${BASE_URL}trip/${tripId}/`))
-// }
-
 RoadTripAPI.deleteRoadTripById = async (roadTripId) => {
   return await tryCatchFetch(() => axios.delete(`${BASE_URL}trip/${roadTripId}/`));
 }
@@ -36,8 +32,6 @@ RoadTripAPI.deleteRoadTripById = async (roadTripId) => {
 RoadTripAPI.getTripDestinationsById = async (tripId) => {
   return await tryCatchFetch(() => axios.get(`${BASE_URL}trip/${tripId}/`))
 }
-
-
 
 
 export default RoadTripAPI;

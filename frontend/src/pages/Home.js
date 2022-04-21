@@ -24,7 +24,7 @@ function Home(props) {
           </div>
 
           <div className="menu-column">
-            <Link className="row" to="/build"><h1>PLAN</h1></Link>
+            <Link className="row" to="/trip"><h1>PLAN</h1></Link>
             <Link className="row" to="/parks"><h1>BLOG</h1></Link>
           </div>
         </div>

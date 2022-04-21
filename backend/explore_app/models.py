@@ -12,7 +12,6 @@ class Trip(models.Model):
 
 class TripDestination(models.Model):
     name = models.CharField(max_length=100)
-    order = models.IntegerField()
     description = models.CharField(max_length=255, blank=True, default='')
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name="destinations")
     date = models.DateField(null=True, blank=True)
