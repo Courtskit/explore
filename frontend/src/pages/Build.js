@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import RoadTripAPI from "../api/RoadTripsAPI";
-import AddRoadTrip from "../components/AddRoadTrip"
+import AddRoadTrip from "../components/AddRoadTrip";
 import RoadTripInfo from "../components/RoadTripInfo";
 
 function Build(props) {
   const [roadTripList, setRoadTripList] = useState([])
+  const [isPending, setIsPending] = useState(true); /////////////////
 
   // render new trip form 
   useEffect(() => {
@@ -15,6 +16,7 @@ function Build(props) {
   const loadRoadTrips = async () => {
     const data = await RoadTripAPI.getAllRoadTrips()
     setRoadTripList(data ? data : [])
+    setIsPending(false); /////////////////
   }
 
   const removeRoadTrip = (deletedRoadTripId) => {
@@ -38,6 +40,7 @@ function Build(props) {
       <AddRoadTrip />
 
       <h3>Trips:</h3>
+      { isPending && <h2>Loading...</h2> } 
       { renderRoadTrips() }
 
     </div>

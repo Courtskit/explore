@@ -16,7 +16,7 @@ function RoadTripInfo(props) {
   return (
     <div>
       <Link key={ props.roadtrip.id } to={`/trip/${props.roadtrip.id}`}>{ props.roadtrip.name }</Link>
-      <button className="delete-button" onClick={handleDeleteTrip}>X</button>
+      <button className="delete-button" onClick={ handleDeleteTrip }>X</button>
     </div>
   )
 }
