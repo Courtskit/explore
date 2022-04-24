@@ -25,8 +25,12 @@ RoadTripAPI.createRoadTrip = async (roadTripData) => {
   return await tryCatchFetch(() => axios.post(`${BASE_URL}trip/`, roadTripData));
 }
 
+RoadTripAPI.updateRoadTripDestinations = async (roadTripData, destinationId) => {
+  return await tryCatchFetch(() => axios.put(`${BASE_URL}trip-destination/${destinationId}/`, roadTripData));
+}
+
 RoadTripAPI.getTripById = async (tripId) => {
-  return await tryCatchFetch(() => axios.get(`${BASE_URL}trip/${tripId}/`)) 
+  return await tryCatchFetch(() => axios.get(`${BASE_URL}trip/${tripId}/`));
 }
 
 RoadTripAPI.deleteRoadTripById = async (roadTripId) => {
@@ -34,12 +38,15 @@ RoadTripAPI.deleteRoadTripById = async (roadTripId) => {
 }
 
 RoadTripAPI.getTripDestinationsById = async (tripId) => {
-  return await tryCatchFetch(() => axios.get(`${BASE_URL}trip-destination/${tripId}/`)) // backend URL 
+  return await tryCatchFetch(() => axios.get(`${BASE_URL}trip-destination/${tripId}/`));
 }
 
 RoadTripAPI.createRoadTripDestination = async (destinationData) => {
   return await tryCatchFetch(() => axios.post(`${BASE_URL}trip-destination/`, destinationData));
-} // IN PROGRESS
+}
 
+RoadTripAPI.deleteRoadTripDestinationById = async (destinationId) => {
+  return await tryCatchFetch(() => axios.delete(`${BASE_URL}trip-destination/${destinationId}/`));
+}
 
 export default RoadTripAPI;

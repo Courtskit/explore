@@ -10,22 +10,19 @@ function Home(props) {
           <div className="navitem">Welcome User</div>
         </div>
       </nav>
-    
       <div className="mainContainer">
         <div className="innerContainer">
           <div className="menu-column">
-            <Link className="row" to="/parks"><h1>MAP</h1></Link>
-            <Link className="row" to="/parks"><h1>PARKS</h1></Link>
+            <Link className="row navigateMain" to="/map"><h1>MAP</h1></Link>
+            <Link className="row navigateMain" to="/parks"><h1>PARKS</h1></Link>
           </div>
-
           <div className="image-column">
             <Link className="row" to="/"><img src={bear} className="logo" alt="logo" />
             </Link>
           </div>
-
           <div className="menu-column">
-            <Link className="row" to="/trip"><h1>PLAN</h1></Link>
-            <Link className="row" to="/parks"><h1>BLOG</h1></Link>
+            <Link className="row navigateMain" to="/trip"><h1>PLAN</h1></Link>
+            <Link className="row navigateMain" to="/blog"><h1>BLOG</h1></Link>
           </div>
         </div>
       </div>

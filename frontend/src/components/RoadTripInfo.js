@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import RoadTripAPI from "../api/RoadTripsAPI"
 
 function RoadTripInfo(props) {
+  // gets tripId in database if it exists, takes tripId and uses removeRoadTrip 
   const handleDeleteTrip = async () => {
     const data = await RoadTripAPI.deleteRoadTripById(props.roadtrip.id)
     if (data) {
@@ -11,10 +12,11 @@ function RoadTripInfo(props) {
       console.error("ERROR")
     }
   }
+
   return (
-    <div>
-      <Link key={ props.roadtrip.id } to={`/trip/${props.roadtrip.id}`}>{ props.roadtrip.name }</Link>
-      <button className="delete-button" onClick={ handleDeleteTrip }>X</button>
+    <div className="tripsOnTrip">
+      <Link className="tripNameOnTripsPage" key={ props.roadtrip.id } to={`/trip/${props.roadtrip.id}`}>{ props.roadtrip.name }</Link>
+      <button className="delete-button" onClick={ handleDeleteTrip }>Delete</button>
     </div>
   )
 }

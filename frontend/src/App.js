@@ -5,6 +5,9 @@ import Home from './pages/Home';
 import Parks from './pages/Parks';
 import Build from './pages/Build';
 import Trip from './pages/Trip';
+import Map from './pages/Map';
+import Blog from './pages/Blog';
+
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
           <Route path="/trip" element={<Build />}/>
           <Route path="/trip/:id" element={<Trip />}/>
           <Route path="/parks" element={<Parks />}/>
+          <Route path="/map" element={<Map />}/>
+          <Route path="/blog" element={<Blog />}/>
+
         </Routes>
       </div>
     </HashRouter>

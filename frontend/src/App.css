@@ -4,10 +4,13 @@
 /* #ABA09D  mid beige color */
 /* background-color: #282c34; React Navy */
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Markazi+Text&family=Playfair+Display:wght@600&display=swap');
+
+
 .App {
   text-align: center;
   background-color: #282c34;
-  color: white;
+  color:  #D6CAC7;
   min-height: 100vh;
   display: flex;
   flex-flow: column;
@@ -16,4 +19,121 @@
 .logo {
   max-height: 60vmin;
   pointer-events: none;
+}
+
+.homeButton {
+  background-color: #2CCAD6;
+  border: 0 solid  #D6CAC7;
+  box-sizing: border-box;
+  color: #282c34;
+  display: flex;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.75rem;
+  padding: .75rem 1.65rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  text-decoration-thickness: auto;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(-2deg);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+.homeButton:after {
+  content: '';
+  position: absolute;
+  border-bottom: 1px solid orange;
+  border-right: 1px solid orange;
+  bottom: -6px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+.homeButton:hover:after {
+  border-bottom: 2px solid orange;
+  border-right: 2px solid orange;
+}
+
+@media (min-width: 768px) {
+  .homeButton {
+    padding: .75rem 3rem;
+    font-size: 2rem;
+  }
+}
+
+.tripsOnTrip {
+  text-align: center;
+  line-height: 60px;
+}
+
+.tripNameOnTripsPage {
+  text-decoration: none;
+  font-size: 32px;
+  margin-right:5px;
+  padding: 4px;
+  color: #D6CAC7;
+}
+
+.tripNameOnTripsPage:hover {
+  border-right: 1px solid orange;
+  border-bottom: 1.5px solid orange;
+  border-radius: 4px;
+}
+
+.delete-button {
+  font-size: 12px;
+}
+
+.mapPage {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.destinationsPage {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.destinations {
+  border-bottom: 1px solid orange;
+  border-right: 1px solid orange;
+  border-radius: 4px;
+  padding: 0 55px 25px 55px;
+  width: fit-content;
+  margin: 10px;
+}
+
+.destinations:hover {
+  border-bottom: 2px solid orange;
+  border-right: 2px solid orange;
+}
+
+.header {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 700;
+  padding-right: 10px;
+}
+
+form {
+  padding: 25px;
 }

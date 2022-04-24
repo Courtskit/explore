@@ -1,9 +1,8 @@
 import RoadTripAPI from "../api/RoadTripsAPI";
-import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
+// // props are destinations and setDestinations
 function AddDestination(props) {
-  const navigate = useNavigate();
   const { id } = useParams()
   // console.log(id)
 
@@ -17,13 +16,13 @@ function AddDestination(props) {
       date: evt.target.elements["date"].value
     }
 
-    console.log("SENDING DESTINATION DATA:", roadTripDestination)
+    // console.log("SENDING DESTINATION DATA:", roadTripDestination)
 
     const data = await RoadTripAPI.createRoadTripDestination(roadTripDestination);
 
     if (data) {
-      console.log("RECEIVED DATA:", data)
-      navigate(`/trip/${id}`)
+      let allDestinations = [...props.destinations, data]
+      props.setDestinations(allDestinations)
     }
   }
 

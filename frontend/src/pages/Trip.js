@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import RoadTripAPI from "../api/RoadTripsAPI";
 import { useParams, useNavigate } from "react-router-dom";
-import AddDestination from "../components/AddDestination";
 
+import RoadTripAPI from "../api/RoadTripsAPI";
+import AddDestination from "../components/AddDestination";
+import DestinationDetail from "../components/DestinationDetail";
 
 function Trip(props) {
   const [trip, setTrip] = useState(null);
@@ -10,17 +11,17 @@ function Trip(props) {
   const params = useParams();
   const navigate = useNavigate();
 
+  // loads all trip when a trip id is updated
   useEffect(() => {
     loadRoadTrips()
   }, [params.id])
 
   const loadRoadTrips = async () => {
-    // console.log(params.id)
     let data = await RoadTripAPI.getTripById(params.id)
-    // console.log('DATA', data)////
     setTrip(data)
   }
 
+  // loads all road trip destinations when a trip is changed 
   useEffect(() => {
     loadRoadTripDestinations()
   }, [trip])
@@ -31,43 +32,39 @@ function Trip(props) {
       return 
     }
     let newDestinations = []
-    console.log("TRIPPPPPPPP", trip)
-    console.log("TRIPPPPPPPPDESTINATIONS", trip.destinations)
-
     for(const destinationId of trip.destinations) {
-      console.log('TRIP ID ', destinationId)
       newDestinations.push(await RoadTripAPI.getTripDestinationsById(destinationId))
-      // console.log("TRIPPPPPPPPDESTINATION ****** JUST ONE", newDestinations)
     }
     setDestinations(newDestinations);
-    console.log('newwwwwwwwDestinations', newDestinations)////
   }
 
+  // filters through ALL DESTINATIONS and removes one by its ID
+  const removeDestination = (deleteDestinationId) => {
+    const updatedDestinations = destinations.filter((destination) => {
+      return destination.id !== deleteDestinationId
+    })
+    setDestinations(updatedDestinations);
+  }
+
+  // maps through ALL DESTINATIONS, sending each destination info to DestinationDetail 
   const renderDestinations = () => {
-    if (destinations.length == 0 || !destinations) {
+    if (destinations.length === 0 || !destinations) {
       return 
     }
-    return destinations.map((destination, index) => {
-      return renderDestination(destination, index) 
+    return destinations.map((destination) => {
+      return <DestinationDetail key={destination.id} destination={destination} removeDestination={ removeDestination } destinations={ destinations } setDestinations={ setDestinations }/>
     })
   }
-
-  const renderDestination = (destination, index) => {
-    return (
-      <div key={ index }>
-        <h2>{ destination.name }</h2>
-        <h3>{ destination.description }</h3>
-        <p>{ destination.date }</p>
-      </div>
-    )
-  }
-
+  
   return (
     <div>
-      <h3>Trip Details</h3>
-      { renderDestinations() }
-      <button onClick={() => navigate('/trip')}>Back</button>
-      <AddDestination />
+      <button className="homeButton" onClick={() => navigate('/')}>Home</button>
+      <div className="destinationsPage">
+        <h2 className="header">Trip Details</h2>
+        { renderDestinations() }
+        <AddDestination destinations={ destinations } setDestinations={ setDestinations } />
+        <button onClick={() => navigate('/trip')}>Back</button>
+      </div>
     </div>
   )
 }
