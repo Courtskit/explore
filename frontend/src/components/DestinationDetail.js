@@ -3,8 +3,6 @@ import DestinationForm from "../components/DestinationForm"
 import RoadTripAPI from "../api/RoadTripsAPI";
 
 
-{/* <DestinationDetail key={destination.id} destination={destination} removeDestination={ removeDestination } destinations={ destinations } setDestinations={ setDestinations }/> */}
-
 function DestinationDetail(props) {
   const [showForm, setShowForm] = useState(false);
 
