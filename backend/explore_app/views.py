@@ -31,6 +31,6 @@ class UserViewSet(ModelViewSet):
     def get_permissions(self):
         if self.request.method == "POST":
             return (permissions.AllowAny(),) 
-        # elif self.request.method == "PATCH":
-            # return (permissions.IsAuthenticated(),)
+        elif self.request.method == "PATCH":
+            return (permissions.IsAuthenticated(),)
         return (permissions.IsAdminUser(),) 
