@@ -7,6 +7,7 @@ function Blog(props) {
     <div>
       <button className="homeButton" onClick={() => navigate('/')}>Home</button>
       <h2 className="header">Blog</h2>
+      <h4>Feature coming soon!</h4>
     </div>
   )
 }

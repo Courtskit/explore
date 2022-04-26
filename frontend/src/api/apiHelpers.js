@@ -10,7 +10,7 @@ apiHelpers.getCsrfConfig = () => {
   }
 }
 
-const tryCatchFetch = async (axiosCall) => {
+apiHelpers.tryCatchFetch = async (axiosCall) => {
   try {
     const response = await axiosCall();
     return response.data ? response.data : {message:"success"};

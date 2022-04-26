@@ -13,15 +13,10 @@ function AddRoadTrip(props) {
       description: evt.target.elements["description"].value
     }
 
-    console.log("SENDING ROAD TRIP DATA:", roadTripData)
-
     const data = await RoadTripAPI.createRoadTrip(roadTripData);
-
     if (data) {
-      console.log("RECEIVED DATA:", data)
       navigate(`/trip/${data.id}`)
     }
-
   }
 
   return (

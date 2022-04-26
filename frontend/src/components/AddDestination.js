@@ -1,10 +1,8 @@
 import RoadTripAPI from "../api/RoadTripsAPI";
 import { useParams } from "react-router-dom";
 
-// // props are destinations and setDestinations
 function AddDestination(props) {
   const { id } = useParams()
-  // console.log(id)
 
   const handleCreateDestination = async (evt) => {
     evt.preventDefault();
@@ -16,10 +14,7 @@ function AddDestination(props) {
       date: evt.target.elements["date"].value
     }
 
-    // console.log("SENDING DESTINATION DATA:", roadTripDestination)
-
     const data = await RoadTripAPI.createRoadTripDestination(roadTripDestination);
-
     if (data) {
       let allDestinations = [...props.destinations, data]
       props.setDestinations(allDestinations)

@@ -14,7 +14,7 @@ function Trip(props) {
   // loads all trip when a trip id is updated
   useEffect(() => {
     loadRoadTrips()
-  }, [params.id])
+  }, [params.id, props.username])
 
   const loadRoadTrips = async () => {
     let data = await RoadTripAPI.getTripById(params.id)

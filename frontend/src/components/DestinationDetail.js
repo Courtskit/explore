@@ -21,11 +21,9 @@ function DestinationDetail(props) {
     }
 
     const renderUpdateForm = () => {
-      // console.log('here is update form destination', props.destination)
       return <DestinationForm destination={ props.destination }/>
     }
 
-    // render
     const renderDestination = () => {
         return (
           <div className="destinations" key={ props.destination.id }>

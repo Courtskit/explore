@@ -8,7 +8,6 @@
   min-height: 100vh;
 }
 
-
 .navigateMain:hover {
   border-bottom: 2px solid orange;
   border-right: 2px solid orange;
@@ -26,6 +25,12 @@
 
 .navbar {
   padding: 10px;
+}
+
+.navitem {
+  text-decoration: none;
+  color: #D6CAC7;
+  padding: 0px 10px;
 }
 
 .mainContainer {

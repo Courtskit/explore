@@ -1,11 +1,10 @@
 /* #D6CAC7  light beige color */
 /* #75645F  brown bear color */
-/* #2CCAD6  bright blue color */
+/* #2CCAD6  rgb(44, 202, 214) bright blue color */
 /* #ABA09D  mid beige color */
 /* background-color: #282c34; React Navy */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Markazi+Text&family=Playfair+Display:wght@600&display=swap');
-
 
 .App {
   text-align: center;
@@ -136,4 +135,26 @@ label {
 
 form {
   padding: 25px;
+}
+
+
+.parkInfoPage {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  width: 100%;
+}
+
+.parkInfo {
+  list-style: none;
+  width: 70%;
+  font-weight: 600;
+  color: #d6cac7; 
+  box-shadow: 40px -10px orange;
+}
+
+.parkHeader {
+  font-size: larger;
+  font-weight: 800;
 }

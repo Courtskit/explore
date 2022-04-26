@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import RoadTripAPI from "../api/RoadTripsAPI";
 import AddRoadTrip from "../components/AddRoadTrip";
 import RoadTripInfo from "../components/RoadTripInfo";
-import '../App.css';
 import { useNavigate } from "react-router-dom";
+import '../App.css';
 
 
 function Build(props) {
