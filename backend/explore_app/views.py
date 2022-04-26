@@ -13,6 +13,8 @@ class TripViewSet(ModelViewSet):
         return super().perform_create(serializer)
     
     def get_queryset(self):
+        if self.request.user.is_superuser:
+            return Trip.objects.all()
         return Trip.objects.filter(user=self.request.user)
         # return super().get_queryset()
 
