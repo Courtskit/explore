@@ -1,16 +1,20 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from rest_framework import permissions
 from .serializers import *
 from .views_auth import *
 
 class TripViewSet(ModelViewSet):
-    queryset = Trip.objects.all()
+    # queryset = Trip.objects.all()
     serializer_class = TripSerializer
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
         return super().perform_create(serializer)
+    
+    def get_queryset(self):
+        return Trip.objects.filter(user=self.request.user)
+        # return super().get_queryset()
 
 class TripDestinationViewSet(ModelViewSet):
     queryset = TripDestination.objects.all()
