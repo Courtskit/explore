@@ -10,7 +10,6 @@ function Parks(props) {
     <div>
       <button className="homeButton" onClick={() => navigate('/')}>Home</button>
       <h2 className="header">Parks</h2>
-      { isPending && <h2>Loading...</h2> } 
       <ParkInfo setIsPending={ setIsPending } isPending={ isPending }/>
     </div>
   )
@@ -18,9 +17,7 @@ function Parks(props) {
 
 export default Parks;
 
-
 // IMPLEMENT SEARCH PARK FEATURE
-
   // const [searchTerm, setSearchTerm] = useState('');
 
   // const getParkCodes = () => {

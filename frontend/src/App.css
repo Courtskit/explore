@@ -35,7 +35,6 @@
   position: relative;
   text-align: center;
   text-decoration: none #000000 solid;
-  text-decoration-thickness: auto;
   width: 100%;
   max-width: 460px;
   position: relative;
@@ -137,7 +136,6 @@ form {
   padding: 25px;
 }
 
-
 .parkInfoPage {
   align-items: center;
   display: flex;
@@ -157,4 +155,30 @@ form {
 .parkHeader {
   font-size: larger;
   font-weight: 800;
+}
+
+.resources {
+  font-size: 20px;
+  color: #D6CAC7;
+  line-height: 40px;
+  margin: 0;
+}
+
+.links {
+  text-decoration: none;
+  color: #D6CAC7;
+  display: block
+}
+
+.links:hover {
+  color: orange;
+}
+
+.blogheader {
+  font-size: 24px;
+}
+
+.article {
+  width: 60%;
+  margin: auto;
 }

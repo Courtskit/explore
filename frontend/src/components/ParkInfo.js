@@ -12,7 +12,6 @@ function ParkInfo(props) {
   const loadParks = async () => {
     axios.get(parkUrl).then(res => setPark(res.data.data));
     props.setIsPending(false); 
-    console.log(park)
   }
 
   const renderDestinations = () => {
@@ -22,7 +21,9 @@ function ParkInfo(props) {
           return (
             <ul className='parkInfo' key={index}>
               <li className="parkHeader">{info.fullName}</li>
-              <li>{info.description}</li>
+              <li style={{ lineHeight: 3 }}>{info.description}</li>
+              <li style={{ fontSize: 15, lineHeight: 2 }}>{info.latLong}</li>
+              <li style={{ fontSize: 15, lineHeight: 2 }}>{info.directionsInfo}</li>
             </ul>
           )
         })}
@@ -32,6 +33,7 @@ function ParkInfo(props) {
 
   return (
     <div className="tripsOnTrip">
+      { props.isPending && <h2>Loading..</h2> } 
       <div>
         { renderDestinations() }
       </div>
@@ -52,7 +54,6 @@ export default ParkInfo;
   //   let data = await 
   //   setCamps(parkUrl)
   // }
-
 
 
 // IMPLEMENT SEARCH FEATURE AND THEN DISPLAY IMAGE FOR EACH PARK
